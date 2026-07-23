@@ -1,10 +1,10 @@
 import React from 'react'
-import Nav from './components/Nav'
-
+import Card from './components/Card'
+import SongCard from './components/SongCard'
 const App = () => {
   return (
-    <div>
-      <Nav />
+    <div className='w-full h-fit bg-amber-950 flex align-middle justify-center gap-7 p-7 flex-wrap'>
+      <SongCard />
     </div>
   )
 }
