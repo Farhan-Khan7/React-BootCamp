@@ -9,8 +9,8 @@ const App = () => {
     <div className='w-full h-screen bg-amber-950 flex justify-center items-center gap-7 p-7 flex-wrap'>
       {/* <Usestates /> */}
       {/* <StateofArray /> */}
-      {/* <Practice /> */}
-      <Practice2 />
+      <Practice />
+      {/* <Practice2 /> */}
 
     </div>
   )

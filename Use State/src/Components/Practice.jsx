@@ -5,7 +5,7 @@ const Practice = () => {
     const [item , setItem] = useState([])
 
   return (
-    <div className="w-100 bg-white rounded-xl shadow-lg p-6 relative">
+    <div className="min-h-100 w-100 bg-white rounded-xl shadow-lg p-6 relative">
       <h2 className="text-2xl font-bold text-center mb-6">Array UI</h2>
 
       {/* Array Boxes */}
