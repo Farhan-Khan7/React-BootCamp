@@ -1,110 +1,77 @@
-import React from "react";
-import { useState } from "react";
-
+import React from 'react'
+import { useState } from 'react';
 
 const Usestates = () => {
-  const [control, setContorls] = useState(false);
-  const songs = [
-    {
-      banner:
-        "https://i.pinimg.com/1200x/97/99/cd/9799cd23ade3032b6c5aa2bf832940f6.jpg",
-      movie: "Fifty Shades Freed",
-      song: "For You",
-      play: control,
-    },
-    {
-      banner:
-        "https://i.pinimg.com/1200x/ad/03/b2/ad03b251be30ab415f969dd867fbcf81.jpg",
-      movie: "Awarapan",
-      song: "Toh Phir Aao",
-      play: control,
-    },
-    {
-      banner:
-        "https://i.pinimg.com/736x/b7/ab/cc/b7abcc7f28e38117e80915720be4309a.jpg",
-      movie: "Kabir Singh",
-      song: "Kaise Hua",
-      play: control,
-    },
-    {
-      banner:
-        "https://i.pinimg.com/736x/4f/96/6a/4f966ad7ccb496a1b9db7254a653cbcb.jpg",
-      movie: "Shershaah",
-      song: "Raataan Lambiyan",
-      play: control,
-    },
-    {
-      banner:
-        "https://i.pinimg.com/736x/81/60/3b/81603b27e000c8847e0fd997233de0cc.jpg",
-      movie: "Tamasha",
-      song: "Agar Tum Saath Ho",
-      play: control,
-    },
-    {
-      banner:
-        "https://i.pinimg.com/736x/3a/93/16/3a9316f344b33fa8c59e54bf5cf374c0.jpg",
-      movie: "Jab We Met",
-      song: "Tum Se Hi",
-      play: control,
-    },
-    {
-      banner:
-        "https://i.pinimg.com/1200x/a8/33/d0/a833d02ad5db9e66078a140762504092.jpg",
-      movie: "Animal",
-      song: "Satranga",
-      play: control,
-    },
-    {
-      banner:
-        "https://i.pinimg.com/1200x/47/1d/16/471d1658ef5ad8fef1998024731a1017.jpg",
-      movie: "Bhediya",
-      song: "Apna Bana Le",
-      play: control,
-    },
-  ];
 
-  return songs.map((item, idx) => (
-    <div className="w-70 h-110 bg-gray-500 rounded-xl opacity-55 flex flex-col justify-start px-4 py-3.5">
-      <div className="w-full h-55 bg-gray-800 rounded-xl overflow-hidden">
-        <img
-          src={item.banner}
-          alt=""
-          className="w-full h-full object-cover overflow-hidden"
-        />
-      </div>
-      <h3 className="text-md mt-3 font-medium text-cyan-100">{item.song}</h3>
-      <h4 className="text-md mt-0 font-medium text-cyan-100">{item.movie}</h4>
-      <div className="w-full flex justify-between items-center gap-2.5 mt-2.5">
-        <h5 className="text-xs text-cyan-100">1:06</h5>
-        <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-          <div className="w-30 h-full bg-gray-600 rounded-full"></div>
-        </div>
-        <h5 className="text-xs text-cyan-100">-0:27</h5>
-      </div>
-      <div className="w-full flex items-center justify-center gap-8 text-xl text-white mt-6 cursor-pointer">
-        <i className="ri-star-line"></i>
-        <i className="ri-skip-back-fill text-2xl"></i>
-        {item.play ? (
-          <i
-            onClick={() => setContorls(false)}
-            className="ri-pause-large-fill text-2xl"
-          ></i>
-        ) : (
-          <i onClick={() => setContorls(true)} class="ri-play-large-fill"></i>
-        )}
-        <i className="ri-skip-forward-fill text-2xl"></i>
-        <i className="ri-download-2-line"></i>
-      </div>
+    const [following , SetFollowing] = useState(false)
 
-      <div className="w-full flex justify-between items-center gap-2.5 mt-5">
-        <i className="ri-volume-down-line text-cyan-100 text-lg"></i>
-        <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-          <div className="w-30 h-full bg-gray-600 rounded-full"></div>
+  return (
+    <div className="min-h-screen flex items-center justify-center  p-6">
+      {/* Outer Gradient Card */}
+      <div className="relative w-180 h-90 rounded-[40px] bg-gradient-to-br from-sky-200 via-orange-300 to-purple-300 shadow-2xl">
+
+        {/* Inner White Card */}
+        <div className="absolute inset-4 bg-white rounded-[36px]">
+
+          {/* Profile Image */}
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500"
+            alt=""
+            className="absolute top-6 left-8 h-28 w-28 rounded-full border-4 border-white object-cover shadow-xl"
+          />
+
+          {/* Content */}
+          <div className="ml-52 mt-8 mr-8">
+
+            <h1 className="text-5xl font-semibold text-zinc-900">
+              Verona Nov
+            </h1>
+
+            <div className="mt-3 flex gap-3">
+              <span className="rounded-full bg-indigo-100 px-4 py-1 text-sm text-indigo-700">
+                Writer
+              </span>
+
+              <span className="rounded-full bg-yellow-100 px-4 py-1 text-sm text-yellow-700">
+                Golden User
+              </span>
+            </div>
+
+            <p className="mt-8 max-w-md text-xl leading-relaxed text-zinc-500">
+              I write short stories and fanfiction
+              <br />
+              for the most popular fandoms.
+            </p>
+
+            <div className="mt-8 flex items-center justify-between">
+
+              <button onClick={()=>{SetFollowing(!following)}} className={`cursor-pointer flex items-center gap-5 rounded-full  ${following ? `text-black bg-transparent`: `bg-black text-white`} px-13 py-2 w-60 text-2xl font-bold  transition hover:scale-105`}>
+                {following ? <i class="ri-check-fill"></i> : <i className="ri-add-line"></i>}
+                {following ? "Following" : "Follow"}
+              </button>
+
+              <div className="flex gap-4">
+
+                <button className="flex h-16 w-16 items-center justify-center rounded-full border border-zinc-200 text-2xl hover:bg-zinc-100">
+                  <i className="ri-mail-line"></i>
+                  
+                </button>
+
+                <button className="flex h-16 w-16 items-center justify-center rounded-full border border-zinc-200 text-2xl hover:bg-zinc-100">
+                  <i className="ri-notification-3-line"></i>
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
-        <i className="ri-volume-up-line text-cyan-100 text-md"></i>
+
       </div>
     </div>
-  ));
-};
+  );
+}
 
-export default Usestates;
+export default Usestates
