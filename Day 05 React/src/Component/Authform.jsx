@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-const AuthForm = ({ toggle, setToggle }) => {
+const AuthForm = ({ toggle, setToggle , user , setUser }) => {
   let [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  let [user, setUser] = useState([]);
-  console.log(user);
+  
+  console.log(user)
 
   const getData = (details) => {
     let { name, value } = details.target;
