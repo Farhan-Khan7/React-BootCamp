@@ -1,7 +1,26 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { IoClose } from "react-icons/io5";
 
-const Form = ({ showForm, setShowForm }) => {
+const Form = ({ showForm, setShowForm , setCardData }) => {
+
+  
+
+  let {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
+  });
+
+  const formSubmit = (data) => {
+    console.log(data)
+    setCardData((prev) => [...prev, data]);
+    reset()
+  }
+
   return (
     <div
       className={`${
@@ -22,16 +41,24 @@ const Form = ({ showForm, setShowForm }) => {
         Fill all the details below
       </p>
 
-      <form className="grid grid-cols-2 gap-4">
+      <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmit(formSubmit)}>
         {/* Name */}
         <div>
           <label className="text-white block mb-2">Name</label>
 
           <input
+            {...register("name" , {
+              required : "Name is required",
+              pattern : {
+                value : /^[A-Za-z]+(?: [A-Za-z]+)*$/,
+                message : "Blank spaces are not allowed"
+              }
+            })}
             type="text"
-            placeholder="Aria Chen"
+            placeholder="Enter your Name"
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
+          {errors.name && <p className="text-sm font-bold text-red-600">{errors.name.message}</p>}
         </div>
 
         {/* Profession */}
@@ -39,10 +66,14 @@ const Form = ({ showForm, setShowForm }) => {
           <label className="text-white block mb-2">Profession</label>
 
           <input
+          {...register("profession" , {
+            required : "Profession is required",
+          })}
             type="text"
-            placeholder="Frontend Developer"
+            placeholder="Enter your Profession"
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
+          {errors.profession && <p className="text-sm font-bold text-red-600">{errors.profession.message}</p>}
         </div>
 
         {/* Email */}
@@ -50,10 +81,18 @@ const Form = ({ showForm, setShowForm }) => {
           <label className="text-white block mb-2">Email</label>
 
           <input
+          {...register("email" , {
+            required : "Email is required",
+            pattern: {
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+              message: "Invalid email address"
+            }
+          })}
             type="email"
-            placeholder="aria@gmail.com"
+            placeholder="Enter Your Email"
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
+          {errors.email && <p className="text-sm font-bold text-red-600">{errors.email.message}</p>}
         </div>
 
         {/* Contact */}
@@ -61,10 +100,22 @@ const Form = ({ showForm, setShowForm }) => {
           <label className="text-white block mb-2">Contact</label>
 
           <input
+          {...register("contact" , {
+            required : "Contact is required",
+            minLength: {
+              value : 10,
+              message : "Minimum 10 digits allowed"
+            },
+            maxLength : {
+              value : 10,
+              message : "Maximum 10 digits allowed"
+            }
+          })}
             type="tel"
-            placeholder="+91 9876543210"
+            placeholder="Enter your Contact "
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
+          {errors.contact && <p className="text-sm font-bold text-red-600">{errors.contact.message}</p>}
         </div>
 
         {/* Profile Image */}
@@ -72,10 +123,14 @@ const Form = ({ showForm, setShowForm }) => {
           <label className="text-white block mb-2">Profile Image URL</label>
 
           <input
+          {...register("image" , {
+            required : "Profile pic URL is required"
+          })}
             type="text"
-            placeholder="https://..."
+            placeholder="Enter your image URL : https://..."
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
+           {errors.image && <p className="text-sm font-bold text-red-600">{errors.image.message}</p>}
         </div>
 
         {/* Instagram */}
@@ -83,10 +138,12 @@ const Form = ({ showForm, setShowForm }) => {
           <label className="text-white block mb-2">Instagram Link</label>
 
           <input
+          {...register("instagram")}
             type="text"
-            placeholder="https://instagram.com/username"
+            placeholder="Enter your insta URL : https://instagram.com/username"
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
+           
         </div>
 
         {/* LinkedIn */}
@@ -94,8 +151,9 @@ const Form = ({ showForm, setShowForm }) => {
           <label className="text-white block mb-2">LinkedIn Link</label>
 
           <input
+          {...register("linkedln")}
             type="text"
-            placeholder="https://linkedin.com/in/username"
+            placeholder="Enter your Linkedln URL : https://linkedin.com/in/username"
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
         </div>
@@ -105,8 +163,9 @@ const Form = ({ showForm, setShowForm }) => {
           <label className="text-white block mb-2">Threads Link</label>
 
           <input
+          {...register("threads")}
             type="text"
-            placeholder="https://threads.net/@username"
+            placeholder="Enter your Threads URL : https://threads.net/@username"
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
         </div>
@@ -116,14 +175,15 @@ const Form = ({ showForm, setShowForm }) => {
           <label className="text-white block mb-2">X (Twitter) Link</label>
 
           <input
+          {...register("x")}
             type="text"
-            placeholder="https://x.com/username"
+            placeholder="Enter your X URL : https://x.com/username"
             className="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 outline-none text-white placeholder:text-gray-400"
           />
         </div>
 
         {/* Button */}
-        <button className="col-span-2 bg-white text-black py-3 rounded-xl font-bold text-lg hover:bg-gray-200 transition mt-2">
+        <button className="cursor-pointer col-span-2 bg-white text-black py-3 rounded-xl font-bold text-lg hover:bg-gray-200 transition mt-2">
           Generate Card
         </button>
       </form>

@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbaar from "./Component/Navbaar";
 import Form from "./Component/Form";
 import ProfileCard from "./Component/ProfileCard";
 
 const App = () => {
-  let [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(true);
+  const [cardData, setCardData] = useState([]);
 
   return (
     <div className="w-full h-300 bg-gray-800 p-3">
-      <Navbaar showForm={showForm} setShowForm={setShowForm} />
-      <div className="h-fit flex px-3 py-0 gap-5 mt-5 flex-wrap justify-between ">
-        <ProfileCard />
+      <Navbaar
+        showForm={showForm}
+        setShowForm={setShowForm}
+      />
+
+      <div className="h-fit flex px-3 py-0 gap-5 mt-5 flex-wrap">
+        {cardData.map((elem, idx) => (
+          <ProfileCard users={elem} key={idx} />
+        ))}
       </div>
-      <Form showForm={showForm} setShowForm={setShowForm} />
+
+      <Form
+        showForm={showForm}
+        setShowForm={setShowForm}
+        setCardData={setCardData}
+      />
     </div>
   );
 };
-import Navbar from "./Component/Navbaar";
-import { useState } from "react";
 
 export default App;
