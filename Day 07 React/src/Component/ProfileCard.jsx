@@ -1,86 +1,106 @@
+import React from "react";
 import {
   FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
-
 import { RiThreadsFill } from "react-icons/ri";
 
 const ProfileCard = () => {
   return (
-    <div className="h-fit flex px-10 py-5 gap-5 flex-wrap justify-between ">
+    <div className="w-96 rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-700 shadow-2xl">
 
-      <div className="relative w-80 h-120 rounded-xl overflow-hidden shadow-2xl">
-
-        {/* Background Image */}
+      {/* Cover Image */}
+      <div className="relative h-36">
         <img
           src="https://i.pinimg.com/736x/23/b5/6b/23b56b41b844e95d432fccad8b135655.jpg"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
+          alt="Cover"
+          className="w-full h-full object-cover"
         />
 
-        {/* Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
+        {/* Profile Image */}
+        <img
+          src="https://i.pinimg.com/736x/23/b5/6b/23b56b41b844e95d432fccad8b135655.jpg"
+          alt="Profile"
+          className="absolute w-24 h-24 rounded-full border-4 border-zinc-900 object-cover left-1/2 -translate-x-1/2 bottom-[-45px]"
+        />
+      </div>
 
-        {/* Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+      {/* Content */}
+      <div className="pt-14 px-6 pb-6 text-white">
 
-          <h2 className="text-3xl font-bold">
-            Aria Chen
-          </h2>
+        {/* Name */}
+        <h2 className="text-2xl font-bold text-center">
+          Aria Chen
+        </h2>
 
-          <p className="text-sm text-zinc-300 mt-1">
-            Professional Photographer
-          </p>
+        {/* Profession */}
+        <p className="text-center text-zinc-400 text-sm mt-1">
+          Professional Photographer
+        </p>
 
-          <p className="text-sm text-zinc-400">
-            Available on
-          </p>
+        {/* Details */}
+        <div className="mt-8 space-y-4">
 
-          {/* Social Buttons */}
-          <div className="flex flex-wrap gap-3 mt-6">
+          <div className="flex justify-between border-b border-zinc-700 pb-2">
+            <span className="text-zinc-400">Email</span>
+            <span>aria@gmail.com</span>
+          </div>
 
-            <button className="flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/20 px-4 py-2 rounded-md hover:bg-white/25 transition">
+          <div className="flex justify-between border-b border-zinc-700 pb-2">
+            <span className="text-zinc-400">Contact</span>
+            <span>+91 9876543210</span>
+          </div>
 
-              <FaInstagram />
-              <span className="text-sm font-bold">Instagram</span>
+        </div>
 
+        {/* Social Media */}
+        <div className="mt-7">
+
+          <h3 className="text-center text-sm text-zinc-400 mb-4">
+            Available On
+          </h3>
+
+          <div className="flex justify-center gap-4">
+
+            <button className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center hover:bg-pink-600 transition duration-300">
+              <FaInstagram className="text-xl" />
             </button>
 
-            <button className="flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/20 px-4 py-2 rounded-md hover:bg-white/25 transition">
-
-              <FaLinkedinIn />
-              <span className="text-sm font-bold">LinkedIn</span>
-
+            <button className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center hover:bg-blue-600 transition duration-300">
+              <FaLinkedinIn className="text-xl" />
             </button>
 
-            <button className="flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/20 px-4 py-2 rounded-md hover:bg-white/25 transition">
-
-              <RiThreadsFill />
-              <span className="text-sm font-bold">Threads</span>
-
+            <button className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center hover:bg-zinc-600 transition duration-300">
+              <RiThreadsFill className="text-xl" />
             </button>
 
-            <button className="flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/20 px-4 py-1 rounded-md hover:bg-white/25 transition">
-
-              <FaXTwitter />
-              <span className="text-sm font-bold">X</span>
-
+            <button className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center hover:bg-black transition duration-300">
+              <FaXTwitter className="text-xl" />
             </button>
 
           </div>
 
-          {/* Friend Button */}
-          <button className="w-full mt-8 bg-white text-black py-2 rounded-md font-semibold text-xl shadow-lg hover:scale-[1.02] transition">
+        </div>
+
+        {/* Buttons */}
+        <div className="grid grid-cols-3 gap-3 mt-8">
+
+          <button className="bg-white text-black py-2 rounded-lg font-semibold hover:bg-zinc-200 transition">
             Friend
+          </button>
+
+          <button className="bg-blue-600 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+            Update
+          </button>
+
+          <button className="bg-red-600 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
+            Delete
           </button>
 
         </div>
 
       </div>
-
-      
-
     </div>
   );
 };

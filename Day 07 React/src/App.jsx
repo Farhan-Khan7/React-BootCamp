@@ -1,17 +1,22 @@
-import React from 'react'
-import Navbaar from './Component/Navbaar'
-import Form from './Component/Form'
-import ProfileCard from './Component/ProfileCard'
+import React from "react";
+import Navbaar from "./Component/Navbaar";
+import Form from "./Component/Form";
+import ProfileCard from "./Component/ProfileCard";
 
 const App = () => {
-  return (
-    <div className='w-full h-300 bg-gray-800'>
-      <Navbaar />
-    <ProfileCard />
-      <Form />
-    </div>
-  )
-}
-import Navbar from './Component/Navbaar'
+  let [showForm, setShowForm] = useState(true);
 
-export default App
+  return (
+    <div className="w-full h-300 bg-gray-800 p-3">
+      <Navbaar showForm={showForm} setShowForm={setShowForm} />
+      <div className="h-fit flex px-3 py-0 gap-5 mt-5 flex-wrap justify-between ">
+        <ProfileCard />
+      </div>
+      <Form showForm={showForm} setShowForm={setShowForm} />
+    </div>
+  );
+};
+import Navbar from "./Component/Navbaar";
+import { useState } from "react";
+
+export default App;
