@@ -25,7 +25,7 @@ const Form = ({ showForm, setShowForm , setCardData }) => {
     <div
       className={`${
         showForm
-          ? "w-[900px] bg-white/20 backdrop-blur-3xl border border-white/20 absolute top-5 left-1/2 -translate-x-1/2 rounded-2xl p-8"
+          ? "w-200 bg-white/20 backdrop-blur-3xl border border-white/20 absolute top-5 left-1/2 -translate-x-1/2 rounded-2xl p-8"
           : "hidden"
       }`}
     >

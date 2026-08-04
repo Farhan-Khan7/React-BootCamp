@@ -19,7 +19,7 @@ const ProfileCard = ({users}) => {
         <img
           src={users.image}
           alt="Profile"
-          className="absolute w-24 h-24 rounded-full border-4 border-zinc-900 object-cover left-1/2 -translate-x-1/2 bottom-[-45px]"
+          className="absolute w-24 h-24 rounded-full border-4 border-zinc-900 object-cover left-1/2 -translate-x-1/2 top-25"
         />
       </div>
 
