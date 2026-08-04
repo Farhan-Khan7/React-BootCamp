@@ -2,7 +2,7 @@ import React from "react";
 import { FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { RiThreadsFill } from "react-icons/ri";
 
-const ProfileCard = ({users}) => {
+const ProfileCard = ({users, setUpdateUser , setShowForm , deletedUsers , id}) => {
 
   
   return (
@@ -95,11 +95,14 @@ const ProfileCard = ({users}) => {
             Friend
           </button>
 
-          <button className="bg-blue-600 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+          <button onClick={()=> {
+            setUpdateUser(users)
+            setShowForm((prev) => !prev)
+          }} className="bg-blue-600 py-2 cursor-pointer rounded-lg font-semibold hover:bg-blue-700 transition">
             Update
           </button>
 
-          <button className="bg-red-600 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
+          <button onClick={()=> deletedUsers(id)}  className="bg-red-600 py-2 rounded-lg font-semibold cursor-pointer hover:bg-red-700 transition">
             Delete
           </button>
         </div>

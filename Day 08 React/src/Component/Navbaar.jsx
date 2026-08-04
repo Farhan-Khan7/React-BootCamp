@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbaar = ({showForm , setShowForm}) => {
+const Navbaar = ({showForm , setShowForm , setUpdateUser}) => {
   return (
     <div className='rounded backdrop-blur-3xl w-full h-15 px-3 py-2 bg-white/20 text-white flex items-center justify-between'>
       <div className='w-fit h-full ml-10 rounded-full overflow-hidden '>
@@ -13,7 +13,10 @@ const Navbaar = ({showForm , setShowForm}) => {
         <p className='font-bold'>Contact</p>
       </div>
 
-      <button onClick={() =>  setShowForm(true)} className={`cursor-pointer px-5 py-2 bg-gray-800 rounded font-bold flex justify-center items-center mr-7`}>Create User</button>
+      <button onClick={() => {
+         setShowForm(true)
+         setUpdateUser(null)
+      }} className={`cursor-pointer px-5 py-2 bg-gray-800 rounded font-bold flex justify-center items-center mr-7`}>Create User</button>
     </div>
   )
 }
