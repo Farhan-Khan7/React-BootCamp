@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { MyShop } from "../Context/Context";
 
-const Cart = ({ cartItems }) => {
+const Cart = () => {
+
+  const {cartItems} = useContext(MyShop);
+
   const totalPrice = cartItems.reduce(
     (acc, item) => acc + item.price,
     0

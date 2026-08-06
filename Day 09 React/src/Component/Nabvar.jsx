@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { useContext } from "react";
+import { MyShop } from "../Context/Context";
 
-const Navbar = ({setTabs}) => {
+const Navbar = () => {
+
+  const {setTabs} = useContext(MyShop);
+
   return (
     <nav className="flex items-center justify-between px-10 py-4 bg-slate-900 text-white shadow-lg">
       {/* Logo */}

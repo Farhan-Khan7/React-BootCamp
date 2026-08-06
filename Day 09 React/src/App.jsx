@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import Nabvar from "./Component/Nabvar";
 import Product from "./Component/Product";
 import Cart from "./Component/Cart";
+import { ContextProvider, MyShop } from "./Context/Context";
+import { useContext } from "react";
+
 
 const App = () => {
+
+  const {tabs} = useContext(MyShop)
+
   const products = [
     {
       id: 1,
@@ -277,20 +283,18 @@ const App = () => {
     },
   ];
 
-  const [tabs, setTabs] = useState(false);
-  const [cartItems , setCardItems] = useState([])
-  console.log(cartItems)
+  
 
   return (
     <div className="overflow-hidden">
-      <Nabvar setTabs={setTabs} />
+      <Nabvar />
 
       {tabs ? (
-        <Cart cartItems={cartItems} />
+        <Cart />
       ) : (
         <div className="flex flex-wrap justify-evenly p-5">
           {products.map((product) => (
-            <Product key={product.id} product={product} setCardItems={setCardItems}/>
+            <Product key={product.id} product={product}/>
           ))}
         </div>
       )}
