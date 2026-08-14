@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from 'react-router'
 
 const Navbar = () => {
   return (
@@ -12,45 +13,45 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="flex items-center gap-8">
-          <a
+          <navLink to={"/home"}
             // onClick={() => setToggle("home")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             Home
-          </a>
+          </navLink>
 
-          <a
-          // onClick={() => setToggle("about")}
+          <navLink to={"/about"}
+            // onClick={() => setToggle("about")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             About
-          </a>
+          </navLink>
 
-          <a
-          // onClick={() => setToggle("services")}
+          <navLink to={"/services"} 
+            // onClick={() => setToggle("services")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             Services
-          </a>
+          </navLink>
 
-          <a
-          // onClick={() => setToggle("projects")}
+          <navLink to={"/projects"}
+            // onClick={() => setToggle("projects")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             Projects
-          </a>
+          </navLink>
 
-          <a
-          // onClick={() => setToggle("contact")}
+          <navLink to={"/contact"}  
+            // onClick={() => setToggle("contact")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             Contact
-          </a>
+          </navLink>
         </div>
 
         {/* Button */}
