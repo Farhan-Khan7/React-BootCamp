@@ -13,45 +13,45 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="flex items-center gap-8">
-          <navLink to={"/home"}
+          <NavLink to={"/"}
             // onClick={() => setToggle("home")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             Home
-          </navLink>
+          </NavLink>
 
-          <navLink to={"/about"}
+          <NavLink to={"/about"}
             // onClick={() => setToggle("about")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             About
-          </navLink>
+          </NavLink>
 
-          <navLink to={"/services"} 
+          <NavLink to={"/services"} 
             // onClick={() => setToggle("services")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             Services
-          </navLink>
+          </NavLink>
 
-          <navLink to={"/projects"}
+          <NavLink to={"/project"}
             // onClick={() => setToggle("projects")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             Projects
-          </navLink>
+          </NavLink>
 
-          <navLink to={"/contact"}  
+          <NavLink to={"/contact"}  
             // onClick={() => setToggle("contact")}
             href="#"
             className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
           >
             Contact
-          </navLink>
+          </NavLink>
         </div>
 
         {/* Button */}
