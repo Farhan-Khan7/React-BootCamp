@@ -6,7 +6,7 @@ import AppRoute from './routes/AppRoute';
 
 const App = () =>{
   return (
-    <div>
+    <div className='flex flex-col'>
       <Navbar />
       <AppRoute />
       

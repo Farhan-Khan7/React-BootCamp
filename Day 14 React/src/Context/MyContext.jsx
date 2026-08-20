@@ -8,8 +8,9 @@ export const ContextProvider = ({ children }) => {
   // Products ka global state
   
   const [product, setProducts] = useState([]);
+  const [singleProduct, setSingleProduct] = useState([]);
   return (
-    <MyStore.Provider value={{ product, setProducts }}>
+    <MyStore.Provider value={{ product, setProducts , singleProduct , setSingleProduct }}>
       {children}
     </MyStore.Provider>
   );
