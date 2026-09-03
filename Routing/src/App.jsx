@@ -11,7 +11,7 @@ const App = () => {
    
   return (
     <div>
-      <div className="w-full h-[50px] bg-red-950 flex justify-between items-center px-15 ">
+      <div className="w-full h-15 bg-red-950 flex justify-between items-center px-15 ">
         <div className="text-2xl w-fit h-fit font-bold text-pink-300">Logo</div>
         <div className="w-100 flex justify-around font-bold text-pink-300">
           <NavLink to={"/"} >Home</NavLink>
